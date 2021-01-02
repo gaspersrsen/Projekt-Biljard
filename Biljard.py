@@ -6,10 +6,10 @@ import random
 #Nastavitve okna za program
 sirina = 1600  #px
 visina = 900  #px
-screen = pygame.display.set_mode((sirina, visina))
+ekran = pygame.display.set_mode((sirina, visina))
 pygame.display.set_caption("Projekt-Biljard")
-background_colour = (0,0,0)
-screen.fill(background_colour)
+barvaOzadja = (0,0,0)
+ekran.fill(barvaOzadja)
 
 #Konstruktor objektov
 class Objekt:
@@ -35,7 +35,7 @@ class Objekt:
         self.vx= self.vx + ax * dt
         self.vy= self.vy + ay * dt
     def prikaz(self):
-        pygame.draw.circle(screen, self.colour, (self.x, self.y), self.radij, self.thickness)
+        pygame.draw.circle(ekran, self.colour, (self.x, self.y), self.radij, self.thickness)
 
 
 

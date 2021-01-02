@@ -34,7 +34,7 @@ class Objekt:
         self.y= self.y + self.vy * dt + 0.5 * ay * dt * dt
         self.vx= self.vx + ax * dt
         self.vy= self.vy + ay * dt
-    def display(self):
+    def prikaz(self):
         pygame.draw.circle(screen, self.colour, (self.x, self.y), self.radij, self.thickness)
 
 

@@ -20,8 +20,8 @@ class Objekt:
         self.vx = vx  #hitrost
         self.vy = vy
         self.radij = radij  #radij
-        self.colour = (255, 255, 255)  #barva
-        self.thickness = 2  #debelina
+        self.barva = (255, 255, 255)  #barva
+        self.debelina = 2  #debelina
     
     def __repr__(self):
         return "Objekt(m={0.m}, x={0.x}, y={0.y}, vx={0.vx}, vy={0.vy}, r={0.r})".format(self)
@@ -36,7 +36,7 @@ class Objekt:
         self.vy= self.vy + ay * dt
        
     def prikaz(self):
-        pygame.draw.circle(ekran, self.colour, (self.x, self.y), self.radij, self.thickness)
+        pygame.draw.circle(ekran, self.barva, (self.x, self.y), self.radij, self.debelina)
 
     def odbojStena(self):
         if self.x >= sirina - self.radij:

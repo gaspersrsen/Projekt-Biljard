@@ -39,9 +39,9 @@ class Objekt:
         pygame.draw.circle(ekran, self.barva, (self.x, self.y), self.radij, self.debelina)
 
     def odbojStena(self):
-        if self.x >= sirina - self.radij:
+        if ((self.x >= sirina - self.radij) or (self.x <= self.radij)):
             self.vx= -self.vx
-        if self.y >= visina - self.radij:
+        if ((self.y >= visina - self.radij) or (self.y <= self.radij)):
             self.vy= -self.vy
 
 

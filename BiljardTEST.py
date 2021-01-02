@@ -39,22 +39,22 @@ class Objekt:
         pygame.draw.circle(ekran, self.barva, (self.x, self.y), self.radij, self.debelina)
 
     def odbojStena(self):
-        if self.x >= sirina - self.radij:
+        if ((self.x >= sirina - self.radij) or (self.x <= self.radij)):
             self.vx= -self.vx
-        if self.y >= visina - self.radij:
+        if ((self.y >= visina - self.radij) or (self.y <= self.radij)):
             self.vy= -self.vy
 
 
 """TEST"""
-steviloDelcev=5
+steviloDelcev=1
 mojiDelci=[]
 for i in range(steviloDelcev):
     m = random.randint(1, 10)
-    radij = random.randint(10, 50)
+    radij = 15#random.randint(10, 50)
     x = random.randint(radij, int(sirina - radij))
     y = random.randint(radij, int(visina - radij))
-    vx = random.randint(10, 30)
-    vy = random.randint(10, 30)
+    vx = 30#random.randint(-30, 30)
+    vy = 30#random.randint(-30, 30)
     mojiDelci.append(Objekt(m, x, y, vx, vy, radij))
 
 
@@ -63,8 +63,8 @@ for delec in mojiDelci:
 
 for i in range(1000):
     for delec in mojiDelci:
-        delec.premik(1)
         delec.odbojStena()
+        delec.premik(1)
         delec.prikaz()
 """TEST"""
 

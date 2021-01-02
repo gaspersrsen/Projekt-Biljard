@@ -34,9 +34,15 @@ class Objekt:
         self.y= self.y + self.vy * dt + 0.5 * ay * dt * dt
         self.vx= self.vx + ax * dt
         self.vy= self.vy + ay * dt
+    
     def prikaz(self):
         pygame.draw.circle(ekran, self.colour, (self.x, self.y), self.radij, self.thickness)
 
+    def odbojStena(self):
+        if self.x >= sirina - self.radij:
+            self.vx= -self.vx
+        if self.y >= visina - self.radij:
+            self.vy= -self.vy
 
 
 

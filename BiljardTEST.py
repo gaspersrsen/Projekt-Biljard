@@ -76,16 +76,16 @@ for i in range(steviloDelcev):
 #Požene program ter čaka na zaprtje
 running = True
 while running:
-    ekran.fill(barvaOzadja)
-    for delec in mojiDelci:
-        if delec =! izbranDelec:
-            delec.odbojStena()
-            delec.premik(casovniKorak)
-        delec.prikaz()
-    pygame.display.flip()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  #Izhod iz simulacije
             running = False
         if event.type == pygame.MOUSEBUTTONDOWN:  #Pritisk miške
             (kazalecX, kazalecY) = pygame.mouse.get_pos()
             izbranDelec = znotrajDelca(mojiDelci, kazalecX, kazalecY)
+    ekran.fill(barvaOzadja)
+    for delec in mojiDelci:
+        if delec != izbranDelec:
+            delec.odbojStena()
+            delec.premik(casovniKorak)
+        delec.prikaz()
+    pygame.display.flip()

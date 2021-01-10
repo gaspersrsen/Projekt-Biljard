@@ -14,7 +14,7 @@ ekran.fill(barvaOzadja)
 
 gravitacija = 0.01
 casovniKorak = 0.5
-kTrenja = 0.005
+kTrenja = 0.001
 kUpor = 0.01
 
 
@@ -61,7 +61,7 @@ def znotrajDelca(Delci, x, y):  #Ali je naša pozicija znotraj kakšnega delca
             return d
 
 """TEST"""
-steviloDelcev=3
+steviloDelcev=30
 mojiDelci=[]
 for i in range(steviloDelcev):
     m = random.randint(1, 10)
@@ -75,6 +75,8 @@ for i in range(steviloDelcev):
 """TEST"""
 #Požene program ter čaka na zaprtje
 running = True
+izbranDelec = None
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:  #Izhod iz simulacije
@@ -82,9 +84,18 @@ while running:
         if event.type == pygame.MOUSEBUTTONDOWN:  #Pritisk miške
             (kazalecX, kazalecY) = pygame.mouse.get_pos()
             izbranDelec = znotrajDelca(mojiDelci, kazalecX, kazalecY)
-    ekran.fill(barvaOzadja)
+        elif event.type == pygame.MOUSEBUTTONUP:
+            izbranDelec = None
+
+    ekran.fill(barvaOzadja)  #Simulacija
     for delec in mojiDelci:
-        if delec != izbranDelec:
+        if delec == izbranDelec:  #Ročni premik delca
+            (kazalecX, kazalecY) = pygame.mouse.get_pos()
+            delec.vx = (kazalecX - delec.x) *0.1
+            delec.vy = (kazalecY - delec.y) *0.1
+            delec.x += delec.vx * casovniKorak
+            delec.y += delec.vy * casovniKorak
+        else:
             delec.odbojStena()
             delec.premik(casovniKorak)
         delec.prikaz()

@@ -18,7 +18,7 @@ try:
 except getopt.error as err:
     # Output error, and return with an error code
     print (str(err))
-    sys.exit(6)
+    sys.exit(2)
 for arg, vrednost in argumenti:
     if arg in ("-f", "--File"):
         File = str(vrednost.strip("="))

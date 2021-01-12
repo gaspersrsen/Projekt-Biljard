@@ -22,20 +22,22 @@ def odboj(d1, d2):
     
     if (odmik < r2):
         kotOdboja = math.atan2(razy, razx) + math.pi / 2
-        kinPred = d1.kineticnaEnergija() + d2.kineticnaEnergija()
+        #kinPred = d1.kineticnaEnergija() + d2.kineticnaEnergija()
         
         (k1, v1) = sestejVektorja(d1.kot, d1.v, d2.kot, -d2.v)
         (k2, v2) = sestejVektorja(d2.kot, d2.v, d1.kot, -d1.v )
-        (d1.kot, d1.v) = sestejVektorja(d1.kot, d1.v, kotOdboja, (-2 * d2.m / sestm) * skalarniProdukt(k1, v1, kotOdboja, 1/odmik))
-        (d2.kot, d2.v) = sestejVektorja(d2.kot, d2.v, kotOdboja +math.pi , (-2 * d1.m / sestm) * skalarniProdukt(k2, v2, kotOdboja, -1/odmik))
+        (d1.kot, d1.v) = sestejVektorja(d1.kot, d1.v, kotOdboja, (-2 * d2.m / sestm) * skalarniProdukt(k1, v1, kotOdboja, 1))
+        (d2.kot, d2.v) = sestejVektorja(d2.kot, d2.v, kotOdboja +math.pi , (-2 * d1.m / sestm) * skalarniProdukt(k2, v2, kotOdboja, -1))
         
-        #Popravek zaradi računskih napak, ki so včasih tudi večje od 3%
+        """#Popravek zaradi računskih napak, ki so včasih tudi večje od 3%
         kinPo = d1.kineticnaEnergija() + d2.kineticnaEnergija()
         popravekKin = 1
         if(kinPo != 0):
             popravekKin = math.sqrt(kinPred / kinPo)
+            if (abs(popravekKin - 1) > 0.01):
+                print(popravekKin)
             d1.v *= popravekKin
-            d2.v *= popravekKin
+            d2.v *= popravekKin"""
 
         prekrivanje = 0.5 * (r2 - odmik + 1)
         d1.x += math.sin(kotOdboja) * prekrivanje

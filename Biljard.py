@@ -12,6 +12,7 @@ kratkaOblika = "f:g:t:u:k:n:m"
 dolgaOblika = ["File=", "gravitacija=", "kTrenja=", "kUpor=", "gravKonst=", "steviloDelcev", "mavrica"]
 File = None
 nakljucnaBarva = 0
+steviloDelcev = 100
 try:
     argumenti, vrednosti = getopt.getopt(argumentiSeznam, kratkaOblika, dolgaOblika)
 except getopt.error as err:
@@ -30,7 +31,7 @@ for arg, vrednost in argumenti:
     elif arg in ("-k", "--gravKonst"):
         uo.gravKonst.vel = float(vrednost.strip("="))
     elif arg in ("-n", "--steviloDelcev"):
-        steviloDelcev = float(vrednost.strip("="))
+        steviloDelcev = int(vrednost.strip("="))
     elif arg in ("-m", "--nakljucnaBarva"):
         nakljucnaBarva = 1
 
@@ -51,10 +52,8 @@ if File:
             simulacija.dodajDelec(1, m=float(row[0]), x=float(row[1]), y=float(row[2]),
                                     v=float(row[3]),kot=float(row[4]), radij=int(row[5]),
                                     barva=(int(row[6]),int(row[7]),int(row[8])), mavrica=int(row[9]))
-
-
 else:
-    simulacija.dodajDelec(100, mavrica=nakljucnaBarva)
+    simulacija.dodajDelec(steviloDelcev, mavrica=nakljucnaBarva)
 
 #Požene program ter čaka na zaprtje
 running = True

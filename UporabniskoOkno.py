@@ -72,28 +72,3 @@ kTrenja = Slider("Koeficient Trenja", 0, 0.05, 0, visina + 80)
 kUpor = Slider("Koeficent Upora", 0, 0.001, 0, visina + 160)
 gravKonst = Slider("Gravitacijska Konstanta", 0, 0.1, -0.1, visina + 240)
 drsniki = [gravitacija, kTrenja, kUpor, gravKonst]
-"""
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            pos = pygame.mouse.get_pos()
-            for s in drsniki:
-                if s.button_rect.collidepoint(pos):
-                    s.pritisk = True
-        elif event.type == pygame.MOUSEBUTTONUP:
-            for s in drsniki:
-                s.pritisk = False
-    #Premik drsnikov
-    for s in drsniki:
-        if s.pritisk:
-            s.move()
- 
-    #Pripravi ekran na novo sliko
-    screen.fill((0,0,0))
- 
-    for s in drsniki:
-        s.draw()
-    pygame.display.flip()"""

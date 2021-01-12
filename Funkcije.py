@@ -106,8 +106,9 @@ class Okolje:
             y = kargs.get("y", random.randint(radij, int(self.visina - radij)))
             v = kargs.get("v", random.randint(-3, 3))
             kot = kargs.get("kot", random.uniform(-math.pi, math.pi))
+            mavrica = kargs.get("mavrica", 0)
             barva = kargs.get("barva", (200, 200, 200))
-            if kargs.get("mavrica", False):
+            if mavrica == 1:
                 barva = (random.randint(0,255), random.randint(0,255), random.randint(0,255))
             self.delci.append(Objekt(m, x, y, v, kot, radij, barva))
     

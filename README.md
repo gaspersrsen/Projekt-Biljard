@@ -19,7 +19,7 @@ https://www.pygame.org/wiki/GettingStarted
 
 ## <b><u> Izvajanje simulacije: </u></b>
 * Osnova: 100 naključnih delcev <br/>
-poženemo datoteko Biljard.py<br/>
+poženemo datoteko Biljard.py <br/>
 * Iz datoteke preberemo delce:<br/>
 poženemo datoteko Biljard.py --File={lokacija datoteke}<br/>
 v datoteki dodajamo delce s naslednjimi lastnosti:<br/>
@@ -55,8 +55,11 @@ masa, x, y, v, kot, radij, R, G, B, nakljucnaBarva<br/>
 
 #
 ## <b><u> Viri: </u></b>
-* https://www.petercollingridge.co.uk/tutorials/pygame-physics-simulation/ <br/>
+1. https://www.petercollingridge.co.uk/tutorials/pygame-physics-simulation/ <br/>
     Velik del kode sledi iz teh navodil, kako napisati program, ki simulira odboj kroglic.
-* https://en.wikipedia.org/wiki/Elastic_collision <br/>
-* https://www.dreamincode.net/forums/topic/401541-buttons-and-sliders-in-pygame/ <br/>
+2. https://en.wikipedia.org/wiki/Elastic_collision <br/>
+    Ideja za elastični odboj delcev.
+3. https://www.dreamincode.net/forums/topic/401541-buttons-and-sliders-in-pygame/ <br/>
     Večina kode za uporabniško okno izhaja iz te strani.
+4. https://stackabuse.com/command-line-arguments-in-python/ <br/>
+    Ideja za implemetacijo dodatnih možnosti za izvajanje simulacije.
